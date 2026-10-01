@@ -104,7 +104,7 @@ class PageController
      *
      * @return array{0: ?Site, 1: string}
      */
-    protected function resolveSite(Request $request, string $path): array
+    public function resolveSite(Request $request, string $path): array
     {
         $host = $request->getHost();
         $best = null;

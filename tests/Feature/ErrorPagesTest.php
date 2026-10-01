@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Modules\Sites\Models\Site;
 
 test('a 404 under the CMS route renders the admin-styled error page', function () {
     $response = $this->get(config('cms.route').'/this-route-does-not-exist');
@@ -24,4 +25,11 @@ test('a 404 on the public site renders the site-styled error page', function () 
 
     $response->assertNotFound();
     $response->assertSee("We couldn't find that page");
+});
+
+test('a 404 under a language site keeps that site selected in the language switcher', function () {
+    Site::create(['handle' => 'indonesia', 'name' => 'Indonesia', 'url' => '/', 'locale' => 'id', 'lang' => 'id', 'attributes' => [], 'order' => 1]);
+    Site::create(['handle' => 'english', 'name' => 'English', 'url' => '/en', 'locale' => 'en', 'lang' => 'en', 'attributes' => [], 'order' => 2]);
+
+    $this->get('/en/missing')->assertNotFound()->assertSee('<option value="/en" selected', false);
 });

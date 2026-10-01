@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ filled($title) ? $title . " - " . config("app.name") : config("app.name") }}</title>
     <link rel="icon" href="/favicon.png" sizes="any" />
+    @fonts
     @vite (["resources/css/site.css"])
 
     @php $siteSettings = \App\Modules\SiteSettings\Models\SiteSetting::current(); @endphp

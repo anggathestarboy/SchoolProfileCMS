@@ -2,7 +2,7 @@
     @include ('errors.admin-404')
 @else
     @php
-        $site = \App\Modules\Sites\Models\Site::orderBy('order')->first();
+        [$site] = app(\App\Modules\Collections\Http\Controllers\PageController::class)->resolveSite(request(), trim(request()->path(), '/'));
     @endphp
     <x-layouts::site.layout :title="__('Page not found')" :site="$site">
         <div class="mx-auto flex max-w-5xl flex-col items-center gap-4 px-6 py-24 text-center">

@@ -2,6 +2,51 @@
 @source '../views/layouts/site';
 @source '../views/pages';
 
+@theme {
+  --color-cbGreen-1: #063b00;
+  --color-cbGreen-2: #266210;
+  --color-cbYellow-1: #90b800;
+  --color-cbYellow-2: #e1e100;
+
+  --font-heading: "Montserrat", sans-serif;
+  --font-paragraph: "Inter", sans-serif;
+
+  /* ----- Heading Size Style ----- */
+  --text-heading-44: 44px;
+  --leading-heading-44: 52px;
+  --text-heading-40: 40px;
+  --leading-heading-40: 50px;
+  --text-heading-36: 36px;
+  --leading-heading-36: 46px;
+  --text-heading-32: 32px;
+  --leading-heading-32: 42px;
+  --text-heading-28: 28px;
+  --leading-heading-28: 36px;
+  --text-heading-24: 24px;
+  --leading-heading-24: 34px;
+  --text-heading-20: 20px;
+  --leading-heading-20: 30px;
+  --text-heading-18: 18px;
+  --leading-heading-18: 24px;
+  --text-heading-16: 16px;
+  --leading-heading-16: 24px;
+  --text-heading-12: 12px;
+  --leading-heading-12: 18px;
+
+  /* ----- Paragraph Size Style ----- */
+  --text-paragraph-20: 20px;
+  --leading-paragraph-20: 32px;
+  --text-paragraph-18: 18px;
+  --leading-paragraph-18: 28px;
+  --text-paragraph-16: 16px;
+  --leading-paragraph-16: 26px;
+  --text-paragraph-15: 15px;
+  --leading-paragraph-15: 26px;
+  --text-paragraph-14: 14px;
+  --leading-paragraph-14: 22px;
+}
+
+/* ----- General Style ----- */
 @layer utilities {
   .container {
     max-width: 100%;
@@ -30,4 +75,579 @@ html .spt {
 }
 .hidescroll::-webkit-scrollbar {
   display: none;
+}
+
+/* ----- Dynamic Style ----- */
+.content-dynamic h2 {
+  font-family: var(--font-heading);
+  font-size: var(--text-heading-24);
+  line-height: var(--leading-heading-24);
+  font-weight: 600;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+.content-dynamic h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-heading-20);
+  line-height: var(--leading-heading-20);
+  font-weight: 600;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+.content-dynamic h4 {
+  font-family: var(--font-heading);
+  font-size: var(--text-heading-18);
+  line-height: var(--leading-heading-18);
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+.content-dynamic p {
+  font-family: var(--font-paragraph);
+  font-size: var(--text-paragraph-16);
+  line-height: var(--leading-paragraph-16);
+  color: inherit;
+}
+.content-dynamic p + p {
+  margin-top: 16px;
+}
+.content-dynamic ol,
+.content-dynamic ul {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.content-dynamic ol {
+  list-style-type: decimal;
+  padding-left: 20px;
+}
+.content-dynamic ul {
+  list-style-type: disc;
+  padding-left: 18px;
+}
+.content-dynamic li {
+  font-family: var(--font-paragraph);
+  font-size: var(--text-paragraph-15);
+  line-height: var(--leading-paragraph-15);
+  margin-top: 6px;
+}
+.content-dynamic li p {
+  margin-top: 0;
+}
+.content-dynamic a {
+  color: var(--color-cbGreen-2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.content-dynamic strong {
+  font-weight: 700;
+}
+.content-dynamic em {
+  font-style: italic;
+}
+.content-dynamic blockquote {
+  border-left: 3px solid var(--color-cbGreen-1);
+  padding-left: 16px;
+  margin: 20px 0;
+  font-style: italic;
+  color: #4b5563;
+}
+.content-dynamic hr {
+  margin: 24px 0;
+  border-color: #e5e7eb;
+}
+.content-dynamic img {
+  border-radius: 8px;
+  margin: 20px 0;
+}
+.content-dynamic > *:first-child {
+  margin-top: 0;
+}
+
+/* ----- Desktop Style ----- */
+@utility heading-44 {
+  font-family: var(--font-heading);
+  font-size: var(--text-heading-44);
+  line-height: var(--leading-heading-44);
+  font-weight: 400;
+}
+@utility heading-44-medium {
+  @apply heading-44 font-medium;
+}
+@utility heading-44-semibold {
+  @apply heading-44 font-semibold;
+}
+@utility heading-44-bold {
+  @apply heading-44 font-bold;
+}
+
+@utility heading-40 {
+  font-family: var(--font-heading);
+  font-size: var(--text-heading-40);
+  line-height: var(--leading-heading-40);
+  font-weight: 400;
+}
+@utility heading-40-medium {
+  @apply heading-40 font-medium;
+}
+@utility heading-40-semibold {
+  @apply heading-40 font-semibold;
+}
+@utility heading-40-bold {
+  @apply heading-40 font-bold;
+}
+
+@utility heading-36 {
+  font-family: var(--font-heading);
+  font-size: var(--text-heading-36);
+  line-height: var(--leading-heading-36);
+  font-weight: 400;
+}
+@utility heading-36-medium {
+  @apply heading-36 font-medium;
+}
+@utility heading-36-semibold {
+  @apply heading-36 font-semibold;
+}
+@utility heading-36-bold {
+  @apply heading-36 font-bold;
+}
+
+@utility heading-32 {
+  font-family: var(--font-heading);
+  font-size: var(--text-heading-32);
+  line-height: var(--leading-heading-32);
+  font-weight: 400;
+}
+@utility heading-32-medium {
+  @apply heading-32 font-medium;
+}
+@utility heading-32-semibold {
+  @apply heading-32 font-semibold;
+}
+@utility heading-32-bold {
+  @apply heading-32 font-bold;
+}
+
+@utility heading-28 {
+  font-family: var(--font-heading);
+  font-size: var(--text-heading-28);
+  line-height: var(--leading-heading-28);
+  font-weight: 400;
+}
+@utility heading-28-medium {
+  @apply heading-28 font-medium;
+}
+@utility heading-28-semibold {
+  @apply heading-28 font-semibold;
+}
+@utility heading-28-bold {
+  @apply heading-28 font-bold;
+}
+
+@utility heading-24 {
+  font-family: var(--font-heading);
+  font-size: var(--text-heading-24);
+  line-height: var(--leading-heading-24);
+  font-weight: 400;
+}
+@utility heading-24-medium {
+  @apply heading-24 font-medium;
+}
+@utility heading-24-semibold {
+  @apply heading-24 font-semibold;
+}
+@utility heading-24-bold {
+  @apply heading-24 font-bold;
+}
+
+@utility heading-20 {
+  font-family: var(--font-heading);
+  font-size: var(--text-heading-20);
+  line-height: var(--leading-heading-20);
+  font-weight: 400;
+}
+@utility heading-20-medium {
+  @apply heading-20 font-medium;
+}
+@utility heading-20-semibold {
+  @apply heading-20 font-semibold;
+}
+@utility heading-20-bold {
+  @apply heading-20 font-bold;
+}
+
+@utility heading-18 {
+  font-family: var(--font-heading);
+  font-size: var(--text-heading-18);
+  line-height: var(--leading-heading-18);
+  font-weight: 400;
+}
+@utility heading-18-medium {
+  @apply heading-18 font-medium;
+}
+@utility heading-18-semibold {
+  @apply heading-18 font-semibold;
+}
+@utility heading-18-bold {
+  @apply heading-18 font-bold;
+}
+
+@utility heading-16 {
+  font-family: var(--font-heading);
+  font-size: var(--text-heading-16);
+  line-height: var(--leading-heading-16);
+  font-weight: 400;
+}
+@utility heading-16-medium {
+  @apply heading-16 font-medium;
+}
+@utility heading-16-semibold {
+  @apply heading-16 font-semibold;
+}
+@utility heading-16-bold {
+  @apply heading-16 font-bold;
+}
+
+@utility heading-12 {
+  font-family: var(--font-heading);
+  font-size: var(--text-heading-12);
+  line-height: var(--leading-heading-12);
+  font-weight: 400;
+}
+@utility heading-12-medium {
+  @apply heading-12 font-medium;
+}
+@utility heading-12-semibold {
+  @apply heading-12 font-semibold;
+}
+@utility heading-12-bold {
+  @apply heading-12 font-bold;
+}
+
+@utility paragraph-20 {
+  font-family: var(--font-paragraph);
+  font-size: var(--text-paragraph-20);
+  line-height: var(--leading-paragraph-20);
+  font-weight: 400;
+}
+@utility paragraph-20-medium {
+  @apply paragraph-20 font-medium;
+}
+@utility paragraph-20-semibold {
+  @apply paragraph-20 font-semibold;
+}
+@utility paragraph-20-bold {
+  @apply paragraph-20 font-bold;
+}
+
+@utility paragraph-18 {
+  font-family: var(--font-paragraph);
+  font-size: var(--text-paragraph-18);
+  line-height: var(--leading-paragraph-18);
+  font-weight: 400;
+}
+@utility paragraph-18-medium {
+  @apply paragraph-18 font-medium;
+}
+@utility paragraph-18-semibold {
+  @apply paragraph-18 font-semibold;
+}
+@utility paragraph-18-bold {
+  @apply paragraph-18 font-bold;
+}
+
+@utility paragraph-16 {
+  font-family: var(--font-paragraph);
+  font-size: var(--text-paragraph-16);
+  line-height: var(--leading-paragraph-16);
+  font-weight: 400;
+}
+@utility paragraph-16-medium {
+  @apply paragraph-16 font-medium;
+}
+@utility paragraph-16-semibold {
+  @apply paragraph-16 font-semibold;
+}
+@utility paragraph-16-bold {
+  @apply paragraph-16 font-bold;
+}
+
+@utility paragraph-15 {
+  font-family: var(--font-paragraph);
+  font-size: var(--text-paragraph-15);
+  line-height: var(--leading-paragraph-15);
+  font-weight: 400;
+}
+@utility paragraph-15-medium {
+  @apply paragraph-15 font-medium;
+}
+@utility paragraph-15-semibold {
+  @apply paragraph-15 font-semibold;
+}
+@utility paragraph-15-bold {
+  @apply paragraph-15 font-bold;
+}
+
+@utility paragraph-14 {
+  font-family: var(--font-paragraph);
+  font-size: var(--text-paragraph-14);
+  line-height: var(--leading-paragraph-14);
+  font-weight: 400;
+}
+@utility paragraph-14-medium {
+  @apply paragraph-14 font-medium;
+}
+@utility paragraph-14-semibold {
+  @apply paragraph-14 font-semibold;
+}
+@utility paragraph-14-bold {
+  @apply paragraph-14 font-bold;
+}
+
+/* ----- Tablet Style ----- */
+@media (max-width: 1190px) and (min-width: 481px) {
+  .heading-44,
+  .heading-44-medium,
+  .heading-44-semibold,
+  .heading-44-bold {
+    font-size: 38px;
+    line-height: 48px;
+  }
+
+  .heading-40,
+  .heading-40-medium,
+  .heading-40-semibold,
+  .heading-40-bold {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  .heading-36,
+  .heading-36-medium,
+  .heading-36-semibold,
+  .heading-36-bold {
+    font-size: 34px;
+    line-height: 44px;
+  }
+
+  .heading-32,
+  .heading-32-medium,
+  .heading-32-semibold,
+  .heading-32-bold {
+    font-size: 32px;
+    line-height: 44px;
+  }
+
+  .heading-28,
+  .heading-28-medium,
+  .heading-28-semibold,
+  .heading-28-bold {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .heading-24,
+  .heading-24-medium,
+  .heading-24-semibold,
+  .heading-24-bold {
+    font-size: 24px;
+    line-height: 34px;
+  }
+
+  .heading-20,
+  .heading-20-medium,
+  .heading-20-semibold,
+  .heading-20-bold {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .heading-18,
+  .heading-18-medium,
+  .heading-18-semibold,
+  .heading-18-bold {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .heading-16,
+  .heading-16-medium,
+  .heading-16-semibold,
+  .heading-16-bold {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .heading-12,
+  .heading-12-medium,
+  .heading-12-semibold,
+  .heading-12-bold {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .paragraph-20,
+  .paragraph-20-medium,
+  .paragraph-20-semibold,
+  .paragraph-20-bold {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .paragraph-18,
+  .paragraph-18-medium,
+  .paragraph-18-semibold,
+  .paragraph-18-bold {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .paragraph-16,
+  .paragraph-16-medium,
+  .paragraph-16-semibold,
+  .paragraph-16-bold {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .paragraph-15,
+  .paragraph-15-medium,
+  .paragraph-15-semibold,
+  .paragraph-15-bold {
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  .paragraph-14,
+  .paragraph-14-medium,
+  .paragraph-14-semibold,
+  .paragraph-14-bold {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+}
+
+/* ----- Mobile Style ----- */
+@media (max-width: 480px) {
+  .heading-44,
+  .heading-44-medium,
+  .heading-44-semibold,
+  .heading-44-bold {
+    font-size: 34px;
+    line-height: 44px;
+  }
+
+  .heading-40,
+  .heading-40-medium,
+  .heading-40-semibold,
+  .heading-40-bold {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .heading-36,
+  .heading-36-medium,
+  .heading-36-semibold,
+  .heading-36-bold {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .heading-32,
+  .heading-32-medium,
+  .heading-32-semibold,
+  .heading-32-bold {
+    font-size: 28px;
+    line-height: 38px;
+  }
+
+  .heading-28,
+  .heading-28-medium,
+  .heading-28-semibold,
+  .heading-28-bold {
+    font-size: 26px;
+    line-height: 34px;
+  }
+
+  .heading-24,
+  .heading-24-medium,
+  .heading-24-semibold,
+  .heading-24-bold {
+    font-size: 22px;
+    line-height: 34px;
+  }
+
+  .heading-20,
+  .heading-20-medium,
+  .heading-20-semibold,
+  .heading-20-bold {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .heading-18,
+  .heading-18-medium,
+  .heading-18-semibold,
+  .heading-18-bold {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .heading-16,
+  .heading-16-medium,
+  .heading-16-semibold,
+  .heading-16-bold {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .heading-12,
+  .heading-12-medium,
+  .heading-12-semibold,
+  .heading-12-bold {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .paragraph-20,
+  .paragraph-20-medium,
+  .paragraph-20-semibold,
+  .paragraph-20-bold {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .paragraph-18,
+  .paragraph-18-medium,
+  .paragraph-18-semibold,
+  .paragraph-18-bold {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .paragraph-16,
+  .paragraph-16-medium,
+  .paragraph-16-semibold,
+  .paragraph-16-bold {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .paragraph-15,
+  .paragraph-15-medium,
+  .paragraph-15-semibold,
+  .paragraph-15-bold {
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  .paragraph-14,
+  .paragraph-14-medium,
+  .paragraph-14-semibold,
+  .paragraph-14-bold {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
 }
