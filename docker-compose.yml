@@ -1,0 +1,41 @@
+services:
+    app:
+        build:
+            context: .
+        ports:
+            # APP_PORT comes from .env.docker — but only because every
+            # command below is run with `--env-file .env.docker` (Compose
+            # only reads variables for this "${...}" substitution from a
+            # file explicitly passed that way, or one literally named
+            # ".env" — it does NOT read them from the env_file: list below,
+            # which only injects vars into the containers themselves).
+            - "${APP_PORT:-8080}:80"
+        env_file:
+            - .env.docker
+        depends_on:
+            db:
+                condition: service_healthy
+        volumes:
+            - storage-app:/app/storage/app
+        restart: unless-stopped
+
+    db:
+        image: mysql:8.4
+        env_file:
+            - .env.docker
+        volumes:
+            - db-data:/var/lib/mysql
+        healthcheck:
+            # $$ (not $) so Compose passes a literal "$MYSQL_ROOT_PASSWORD"
+            # into the container, expanded by its own shell from the
+            # container's real runtime env (set via env_file above) — not
+            # by Compose's separate, unrelated top-level "${...}" mechanism.
+            test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p\"$$MYSQL_ROOT_PASSWORD\""]
+            interval: 5s
+            timeout: 5s
+            retries: 10
+        restart: unless-stopped
+
+volumes:
+    db-data:
+    storage-app:
